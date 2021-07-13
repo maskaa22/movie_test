@@ -1,0 +1,17 @@
+.body {
+
+}
+.wraper{
+    max-width: 1190px;
+
+    margin: 10px;
+    box-sizing: border-box;
+}
+.card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+.ti{
+    background-color: #61dafb;
+}
