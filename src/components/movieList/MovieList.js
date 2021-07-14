@@ -21,10 +21,14 @@ export default function Movies ()
         fetchMovies()
     },[])
     return(
-        <div className="card">
-            {
-                posts.movies.map(val=> <MoviesListCard key={val.id} item={val}/>)
-            }
+        <div className="glavna">
+            <div>
+                <div className="card">
+                    {
+                        posts.movies.map(val => <MoviesListCard key={val.id} item={val}/>)
+                    }
+                </div>
+            </div>
         </div>
     );
 }

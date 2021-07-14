@@ -1,17 +1,101 @@
 .body {
-
-}
-.wraper{
     max-width: 1190px;
+}
 
+/*header*/
+.header_top{
+    height: 70px;
+    background-color: #16304a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-img{
+    width:100px;
+    height:50px;
+    margin:15px 0 10px 15px
+}
+.nav_menu {
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+}
+.nav_menu_item a {
+    font-weight: normal;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color .5s;
+}
+.user-menu {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-right: 10px;
+}
+.active-film{
+    display: block;
+    background: #16304a;
+    border-radius: 5px;
+    padding: 11px 9px;
+    width: 100px;
+    position: absolute;
+    box-sizing: border-box;
+    top: 65px;
+    /*right: 250px;*/
+    left: 490px;
+}
+.pacive-film{
+    display: none;
+}
+.color-i{
+    color: #FFFFFF;
+}
+.active-user{
+    display: block;
+    background: #16304a;
+    border-radius: 5px;
+    padding: 11px 9px;
+    width: 100px;
+    position: absolute;
+    box-sizing: border-box;
+    top: 65px;
+    right: 50px;
+}
+.pacive-user{
+    display: none;
+}
+.drop_down{
+    cursor: pointer;
+}
+.drop_down_item a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+/*________________________________________________________________________________*/
+/*card-movies*/
+.wraper{
     margin: 10px;
     box-sizing: border-box;
+    max-width: 900px;
 }
 .card{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
+    grid-template-columns: repeat(5, 1fr);
 }
-.ti{
+.movies_card{
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.title-movie{
     background-color: #61dafb;
+}
+.img-poster{
+    width: 100%;
+    height: 100%;
+}
+.glavna{
+    width: 95%;
+    margin-left: 35px;
+    margin-top: 10px;
 }
