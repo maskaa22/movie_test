@@ -88,7 +88,8 @@
     border-radius: 5px;
 }
 .title-movie{
-    background-color: #61dafb;
+    background-color: #16304a;
+    color: #FFFFFF;
 }
 .img-poster{
     width: 100%;
@@ -98,4 +99,28 @@
     width: 95%;
     margin-left: 35px;
     margin-top: 10px;
+}
+/*pagination*/
+.pages{
+    margin: 20px 0;
+}
+.page{
+    border: 1px solid lightgray;
+    border-radius: 100%;
+    padding: 5px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.current-page{
+    border: 2px solid gray;
+    font-weight: 700;
+    border-radius: 100%;
+    padding: 5px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+/*star rating*/
+.star {
+    display: inline-block;
+    cursor: pointer;
 }

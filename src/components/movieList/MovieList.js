@@ -3,31 +3,46 @@ import {getMovies} from "../../servises/moviesApi/MoviesApi";
 import {useDispatch, useSelector} from "react-redux";
 import MoviesListCard from '../moviesListCard/MoviesListCard'
 import './../style/Style.css';
+import {setCurrentPage, setMoviesType} from "../../servises/redusers/actionCreators/ActionCreator"
 
 export default function Movies ()
 {
-    const posts = useSelector(store=>store.moviesReducer);
-    const dispatch = useDispatch();
-    const fetchMovies = async ()=> {
-        const data= await getMovies()
-        console.log(data.data.results);
+    const totalCount = useSelector(store=>store.moviesReducer.totalCount);
+    const currentPage = useSelector(store=>store.moviesReducer.currentPage);
+    const perPage = useSelector(store=>store.moviesReducer.perPage);
+//console.log(currentPage);
+    const pages =[1,2,3,4,5]
 
-        dispatch({
-            type:'SET_MOVIES',
-            payload: data.data.results
-        })
+    const moviList = useSelector(store=>store.moviesReducer.movies);
+    const dispatch = useDispatch();
+    const fetchMovies = async (currentPage)=> {
+        const data= await getMovies(currentPage)
+        //console.log(data.data);
+
+        dispatch(setMoviesType(data.data.results))
     }
     useEffect(()=>{
-        fetchMovies()
+        fetchMovies(currentPage)
     },[])
     return(
         <div className="glavna">
             <div>
                 <div className="card">
                     {
-                        posts.movies.map(val => <MoviesListCard key={val.id} item={val}/>)
+                        moviList.map(val => <MoviesListCard key={val.id} item={val}/>)
                     }
                 </div>
+            </div>
+            <div className="pages">
+                {
+                    pages.map((page, index)=>
+                        <span key={index} className={currentPage==page?"current-page":"page"} onClick={()=>{
+                            //console.log(page);
+                            dispatch(setCurrentPage(page))
+
+                        }
+                        }>{page}</span>)
+                }
             </div>
         </div>
     );

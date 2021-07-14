@@ -1,5 +1,6 @@
 import './../style/Style.css';
 import PosterPreview from "../posterPreview/PosterPreview";
+import StarRating from "../starsRating/StarRating";
 export default function Movie ({item})
 {
 
@@ -10,10 +11,9 @@ export default function Movie ({item})
                     <PosterPreview item={item}/>
                     <div className="title-movie">
                         <div>{item.original_title}</div>
-                        <div>{item.vote_average}</div>
+                        <StarRating item={item}/>
                     </div>
-                    {/*<div>{item.overview}</div>*/}
-                    {/*<div>{item.release_date}</div>*/}
+
                 </div>
 
         </div>

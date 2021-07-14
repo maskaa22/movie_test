@@ -2,7 +2,7 @@
 import './App.css';
 import MovieList from './components/movieList/MovieList'
 import Header from "./components/header/Header";
-import Pagination from "./components/pagination/Pagination";
+
 
 
 
@@ -12,7 +12,7 @@ function App() {
     <div>
         <Header/>
         <MovieList/>
-        <Pagination/>
+
     </div>
   );
 }
