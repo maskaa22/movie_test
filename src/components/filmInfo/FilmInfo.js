@@ -1,5 +1,4 @@
 import {useState} from "react";
-
 export default function FilmInfo ()
 {
     const [flag, setFlag] = useState(false);
@@ -8,7 +7,7 @@ export default function FilmInfo ()
     return(
         <div>
             <a  onClick={()=>{onFlagHoverUser()}}>
-                Фильмы</a>
+                Сериалы</a>
             <div className={hoverUser}>
                 <div className="drop_down_item"><a href="#">Жанры</a></div>
                 <div className="drop_down_item"><a href="#">Актёры</a></div>

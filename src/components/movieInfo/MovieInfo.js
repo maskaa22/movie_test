@@ -1,8 +1,15 @@
-export default function MovieInfo () 
+import {Component} from "react";
+
+export default function MovieInfo ({item})
 {
-    return(
-        <div>
-            MovieInfo
-        </div>
-    );
+
+        return (
+            <div className="movie-items">
+                <hr/>
+                <div>Дата релиза {item.release_date}</div>
+                <div>Популярность - {item.popularity}</div>
+                <div>Описание {item.overview}</div>
+            </div>
+        )
+
 }

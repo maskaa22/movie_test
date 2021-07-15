@@ -1,9 +1,15 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {getMovies} from "../../servises/moviesApi/MoviesApi";
 import {useDispatch, useSelector} from "react-redux";
 import MoviesListCard from '../moviesListCard/MoviesListCard'
 import './../style/Style.css';
-import {setCurrentPage, setMoviesType} from "../../servises/redusers/actionCreators/ActionCreator"
+import {setCurrentPage, setMoviesType} from "../../servises/redusers/actionCreators/ActionCreator";
+import {BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import MoviInfo from "../pages/MoviInfo";
 
 export default function Movies ()
 {
@@ -24,26 +30,58 @@ export default function Movies ()
     useEffect(()=>{
         fetchMovies(currentPage)
     },[])
+
+// const [counter, setCounter] = useState([]);
+//     const funcCounter = ()=> {
+//
+//         for (let i = 0; i < 21; i++) {
+//
+//             setCounter(i)
+//         }
+//     }
+
     return(
-        <div className="glavna">
-            <div>
-                <div className="card">
+        <div>
+            <div className="glavna">
+                <Router>
+                    <Switch>
+                        <Route path={'/films/movieInfo'}>
+                            <MoviInfo items={moviList}/>
+                        </Route>
+
+                <div>
+                    <a href="/films/movieInfo">
+                        <div>
+                            <div className="card">
+                                {
+                                    moviList.map(val => <div>
+                                        <div><MoviesListCard key={val.id} item={val}/></div>
+
+                                    </div>)
+                                }
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div className="pages">
                     {
-                        moviList.map(val => <MoviesListCard key={val.id} item={val}/>)
+                        pages.map((page, index) =>
+                            <span key={index} className={currentPage == page ? "current-page" : "page"} onClick={() => {
+                                //console.log(page);
+                                dispatch(setCurrentPage(page))
+
+                            }
+                            }>{page}</span>)
                     }
                 </div>
-            </div>
-            <div className="pages">
-                {
-                    pages.map((page, index)=>
-                        <span key={index} className={currentPage==page?"current-page":"page"} onClick={()=>{
-                            //console.log(page);
-                            dispatch(setCurrentPage(page))
 
-                        }
-                        }>{page}</span>)
-                }
+            </Switch>
+        </Router>
             </div>
+
         </div>
     );
 }
